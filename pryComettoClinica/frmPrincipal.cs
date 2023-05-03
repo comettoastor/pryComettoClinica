@@ -15,232 +15,39 @@ namespace pryComettoClinica
     {
         List<clsMedico> lstMedicos = new List<clsMedico>();
         List<clsEspecialidad> lstEspecialidades = new List<clsEspecialidad>();
+
         public frmPrincipal()
         {
             InitializeComponent();
         }
-        public void CargaEspecialidades()
-        {
-            clsEspecialidad objEspecialidad = new clsEspecialidad();
-            StreamReader streamReader = new StreamReader("ESPECIALIDADES.txt");
-            string auxiliar;
-            string[] vecEspecialidad;
 
-            cmbEspecialidadM.Items.Clear();
-            cmbEspecialidadC.Items.Clear();
-
-            while (streamReader.EndOfStream == false)
-            {
-                auxiliar = streamReader.ReadLine();
-                if (auxiliar != "")
-                {
-                    vecEspecialidad = auxiliar.Split(',');
-                    objEspecialidad.ID = int.Parse(vecEspecialidad[0]);
-                    objEspecialidad.Nombre = vecEspecialidad[1];
-                    lstEspecialidades.Add(objEspecialidad);
-                    cmbEspecialidadM.Items.Add(objEspecialidad.Nombre);
-                    cmbEspecialidadC.Items.Add(objEspecialidad.Nombre);
-                }
-            }
-            streamReader.Close();
-
-            cmbEspecialidadC.Items.Add("Todas");
-            cmbEspecialidadC.Text = "Todas";
-        }
-        public void CargaMedicos()
-        {
-            clsMedico objMedico = new clsMedico();
-            string auxiliar;
-            string auxEsp;
-            string especialidad = "";
-            string[] vectorMedicos;
-            StreamReader streamReader = new StreamReader("MEDICOS.txt"); 
-            StreamReader streamReaderE = new StreamReader("ESPECIALIDADES.txt");
-            dgvConsultas.Rows.Clear();
-            //while (streamReader.EndOfStream == false)
-            //{
-            //    auxiliar = streamReader.ReadLine();
-            //    if (auxiliar != "")
-            //    {
-            //        vectorMedicos = auxiliar.Split(',');
-            //        if (cmbEspecialidadC.Text == "Todas")
-            //        {
-            //            while (streamReaderE.EndOfStream == false)
-            //            {
-            //                auxEsp = streamReaderE.ReadLine();
-            //                if (auxiliar.Split(',')[2] == auxEsp.Split(',')[0])
-            //                {
-            //                    especialidad = auxEsp.Split(',')[1];
-            //                    break;
-            //                }
-            //            }
-            //            streamReaderE.DiscardBufferedData();
-            //            streamReaderE.BaseStream.Position = 0;
-            //            dgvConsultas.Rows.Add(vectorMedicos[0], vectorMedicos[1], especialidad);
-            //        }
-            //    }
-            //}
-            while (streamReader.EndOfStream == false)
-            {
-                auxiliar = streamReader.ReadLine();
-                if (auxiliar != "")
-                {
-                    vectorMedicos = auxiliar.Split(',');
-                    objMedico.Matricula = int.Parse(vectorMedicos[0]);
-                    objMedico.Nombre = vectorMedicos[1];
-                    objMedico.Especialidad = int.Parse(vectorMedicos[2]);
-                    lstMedicos.Add(objMedico);
-                }
-            }
-            streamReader.Close();
-            streamReaderE.Close();
-        }
         private void btnRegistrarE_Click(object sender, EventArgs e)
         {
-            //if (txtNumeroE.Text != "" && txtNombreE.Text != "")
-            //{
-            //    string auxiliar;
-            //    string[] vectorEspecialidades;
-            //    StreamReader streamReader = new StreamReader("ESPECIALIDADES.txt");
-            //    while (streamReader.EndOfStream == false)
-            //    {
-            //        auxiliar = streamReader.ReadLine();
-            //        if (auxiliar != "")
-            //        {
-            //            vectorEspecialidades = auxiliar.Split(',');
-            //            if (vectorEspecialidades[0] == txtNumeroE.Text)
-            //            {
-            //                MessageBox.Show("La especialidad ingresada ya existe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //                streamReader.Close();
-            //                return;
-            //            }
-            //        }
-            //    }
-            //    streamReader.Close();
-            //    StreamWriter streamWriter = new StreamWriter("ESPECIALIDADES.txt", true);
-            //    streamWriter.Write(txtNumeroE.Text + "," + txtNombreE.Text + "\n");
-            //    streamWriter.Close();
-            //    MessageBox.Show("Especialidad " + txtNombreE.Text + " registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    CargaEspecialidades();
-            //    txtNumeroE.Text = "";
-            //    txtNombreE.Text = "";
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Faltan datos por ingresar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
             clsEspecialidad objEspecialidad = new clsEspecialidad();
-            MessageBox.Show(objEspecialidad.Grabar(txtNumeroE.Text, txtNombreE.Text));
+            objEspecialidad.Grabar(txtNumeroE.Text, txtNombreE.Text);
+            objEspecialidad.ListarEspecialidades(lstEspecialidades,objEspecialidad);
+
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            CargaEspecialidades();
-            CargaMedicos();
+            clsEspecialidad objEspecialidad = new clsEspecialidad();
+            objEspecialidad.ListarEspecialidades(cmbEspecialidadM, cmbEspecialidadC, lstEspecialidades, objEspecialidad);
+            clsMedico objMedico = new clsMedico();
+            objMedico.ListarMedicos(dgvConsultas, objMedico, lstMedicos, cmbEspecialidadC);
         }
 
         private void btnRegistrarM_Click(object sender, EventArgs e)
         {
             clsMedico objMedico = new clsMedico();
-            if (txtMatricula.Text != "" && txtNombreM.Text != "" && cmbEspecialidadM.SelectedIndex != -1)
-            {
-                string auxiliar;
-                string[] vectorMedicos;
-                StreamReader streamReader = new StreamReader("MEDICOS.txt");
-                while (streamReader.EndOfStream == false)
-                {
-                    auxiliar = streamReader.ReadLine();
-                    if (auxiliar != "")
-                    {
-                        vectorMedicos = auxiliar.Split(',');
-                        if (vectorMedicos[0] == txtMatricula.Text)
-                        {
-                            MessageBox.Show("El médico ingresado ya existe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            streamReader.Close();
-                            return;
-                        }
-                    }
-                }
-                streamReader.Close();
-                StreamReader streamReaderE = new StreamReader("ESPECIALIDADES.txt");
-                int idEspecialidad = 0;
-                string auxEsp;
-                while (streamReaderE.EndOfStream == false)
-                {
-                    auxEsp = streamReaderE.ReadLine();
-                    if (cmbEspecialidadM.Text == auxEsp.Split(',')[1])
-                    {
-                        idEspecialidad = int.Parse(auxEsp.Split(',')[0]);
-                    }
-                }
-                streamReaderE.Close();
-                StreamWriter streamWriter = new StreamWriter("MEDICOS.txt", true);
-                streamWriter.Write(txtMatricula.Text + "," + txtNombreM.Text + "," + idEspecialidad.ToString() + "\n");
-                streamWriter.Close();
-                MessageBox.Show("Médico " + txtNombreM.Text + " registrado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargaMedicos();
-                txtMatricula.Text = "";
-                txtNombreM.Text = "";
-                cmbEspecialidadM.SelectedIndex = -1;
-                cmbEspecialidadC.Text = "Todos";
-            }
-            else
-            {
-                MessageBox.Show("Faltan datos por ingresar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            objMedico.Grabar(txtMatricula.Text,txtNombreM.Text,cmbEspecialidadM,cmbEspecialidadC);
+            objMedico.ListarMedicos(dgvConsultas,objMedico,lstMedicos,cmbEspecialidadC);
         }
 
         private void cmbEspecialidadC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string auxiliar;
-            string[] vectorMedicos;
-            StreamReader streamReader = new StreamReader("MEDICOS.txt");
-            dgvConsultas.Rows.Clear();
-            StreamReader streamReaderE = new StreamReader("ESPECIALIDADES.txt");
-            string especialidad = "";
-            int idEspecialidad = 0;
-            string auxEsp;
-            while (streamReader.EndOfStream == false)
-            {
-                auxiliar = streamReader.ReadLine();
-                if (auxiliar != "")
-                {
-                    vectorMedicos = auxiliar.Split(',');
-                    if (cmbEspecialidadC.Text == "Todas")
-                    {
-                        while (streamReaderE.EndOfStream == false)
-                        {
-                            auxEsp = streamReaderE.ReadLine();
-                            if (auxiliar.Split(',')[2] == auxEsp.Split(',')[0])
-                            {
-                                especialidad = auxEsp.Split(',')[1];
-                            }
-                        }
-                        streamReaderE.DiscardBufferedData();
-                        streamReaderE.BaseStream.Position = 0;
-                        dgvConsultas.Rows.Add(vectorMedicos[0], vectorMedicos[1], especialidad);
-                    }
-                    else
-                    {
-                        while (streamReaderE.EndOfStream == false)
-                        {
-                            auxEsp = streamReaderE.ReadLine();
-                            if (cmbEspecialidadC.Text == auxEsp.Split(',')[1])
-                            {
-                                idEspecialidad = int.Parse(auxEsp.Split(',')[0]);
-                            }
-                        }
-                        streamReaderE.DiscardBufferedData();
-                        streamReaderE.BaseStream.Position = 0;
-                        if (int.Parse(vectorMedicos[2]) == idEspecialidad)
-                        {
-                            dgvConsultas.Rows.Add(vectorMedicos[0], vectorMedicos[1], cmbEspecialidadC.Text);
-                        }
-                    }
-                }
-            }
-            streamReader.Close();
-            streamReaderE.Close();
+            clsMedico objMedico = new clsMedico();
+            objMedico.ListarMedicos(dgvConsultas, objMedico, lstMedicos, cmbEspecialidadC);
         }
     }
 }

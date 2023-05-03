@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnRegistrarE = new System.Windows.Forms.Button();
             this.txtNombreE = new System.Windows.Forms.TextBox();
             this.cmbEspecialidadM = new System.Windows.Forms.ComboBox();
@@ -50,11 +51,14 @@
             this.lblMatricula = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.mrcRegistro = new System.Windows.Forms.GroupBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cargarMedicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mrcConsultas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).BeginInit();
             this.mrcEspecialidad.SuspendLayout();
             this.mrcRegistroM.SuspendLayout();
             this.mrcRegistro.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRegistrarE
@@ -259,18 +263,32 @@
             this.mrcRegistro.Controls.Add(this.mrcEspecialidad);
             this.mrcRegistro.Controls.Add(this.mrcRegistroM);
             this.mrcRegistro.Controls.Add(this.mrcConsultas);
-            this.mrcRegistro.Location = new System.Drawing.Point(12, 12);
+            this.mrcRegistro.Location = new System.Drawing.Point(12, 69);
             this.mrcRegistro.Name = "mrcRegistro";
             this.mrcRegistro.Size = new System.Drawing.Size(443, 386);
             this.mrcRegistro.TabIndex = 8;
             this.mrcRegistro.TabStop = false;
             this.mrcRegistro.Text = "Registro";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cargarMedicosToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.ShowCheckMargin = true;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 48);
+            // 
+            // cargarMedicosToolStripMenuItem
+            // 
+            this.cargarMedicosToolStripMenuItem.Name = "cargarMedicosToolStripMenuItem";
+            this.cargarMedicosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.cargarMedicosToolStripMenuItem.Text = "Cargar Medicos";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 403);
+            this.ClientSize = new System.Drawing.Size(458, 460);
             this.Controls.Add(this.mrcRegistro);
             this.Name = "frmPrincipal";
             this.Text = "Registro de Médicos";
@@ -283,6 +301,7 @@
             this.mrcRegistroM.ResumeLayout(false);
             this.mrcRegistroM.PerformLayout();
             this.mrcRegistro.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -311,6 +330,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn matricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidad;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cargarMedicosToolStripMenuItem;
     }
 }
 
