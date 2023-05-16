@@ -1,0 +1,3 @@
+1,Astor,1
+0,Pedro,0
+2,Javier,2

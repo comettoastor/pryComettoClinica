@@ -1,0 +1,3 @@
+0,Cardiologia
+1,Otorrinolaringologia
+2,Pediatria
