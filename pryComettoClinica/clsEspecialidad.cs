@@ -47,32 +47,24 @@ namespace pryComettoClinica
                 MessageBox.Show("Especialidad " + Nombre + " registrada correctamente","Registrada",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
-        public void ListarEspecialidades(List<clsEspecialidad> lstEspecialidades, clsEspecialidad objEspecialidad)
+        public void CargarEspecialidades(ComboBox cmbEspecialidadM, ComboBox cmbEspecialidadC)
         {
             string auxiliar;
-            string[] vecEspecialidad;
+
+            cmbEspecialidadM.Items.Clear();
+            cmbEspecialidadC.Items.Clear();
 
             using (StreamReader streamReader = new StreamReader("ESPECIALIDADES.txt"))
             {
                 while (streamReader.EndOfStream == false)
                 {
                     auxiliar = streamReader.ReadLine();
-                    vecEspecialidad = auxiliar.Split(',');
-                    ID = int.Parse(vecEspecialidad[0]);
-                    Nombre = vecEspecialidad[1];
-                    lstEspecialidades.Add(objEspecialidad);
+                    ID = int.Parse(auxiliar.Split(',')[0]);
+                    Nombre = auxiliar.Split(',')[1];
+                    
+                    cmbEspecialidadM.Items.Add(Nombre);
+                    cmbEspecialidadC.Items.Add(Nombre);
                 }
-            }
-
-            
-        }
-
-        public void CargarEspecialidades(List<clsEspecialidad> lstEspecialidades, ComboBox cmbEspecialidadC, ComboBox cmbEspecialidadM)
-        {
-            foreach (clsEspecialidad especialidad in lstEspecialidades)
-            {
-                cmbEspecialidadC.Items.Add(especialidad.Nombre);
-                cmbEspecialidadM.Items.Add(especialidad.Nombre);
             }
 
             cmbEspecialidadC.Items.Add("Todas");
