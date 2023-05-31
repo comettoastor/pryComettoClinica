@@ -55,8 +55,6 @@ namespace pryComettoClinica
                                     idEspecialidad = int.Parse(auxEsp.Split(',')[0]);
                                 }
                             }
-                            //streamReaderE.DiscardBufferedData();
-                            //streamReaderE.BaseStream.Position = 0;
                             if (int.Parse(auxiliar.Split(',')[2]) == idEspecialidad)
                             {
                                 dgvConsultas.Rows.Add(auxiliar.Split(',')[0], auxiliar.Split(',')[1], cmbEspecialidadC.Text);

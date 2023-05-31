@@ -1,3 +1,6 @@
-1,Astor,1
-0,Pedro,0
+0,Julian,1
+1,Pedro,0
 2,Javier,2
+3,Jose,0
+4,Juan,1
+5,Carlos,3

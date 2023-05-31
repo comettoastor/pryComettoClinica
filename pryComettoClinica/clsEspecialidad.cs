@@ -59,7 +59,6 @@ namespace pryComettoClinica
                 while (streamReader.EndOfStream == false)
                 {
                     auxiliar = streamReader.ReadLine();
-                    ID = int.Parse(auxiliar.Split(',')[0]);
                     Nombre = auxiliar.Split(',')[1];
                     
                     cmbEspecialidadM.Items.Add(Nombre);

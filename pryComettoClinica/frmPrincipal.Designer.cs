@@ -63,7 +63,7 @@
             this.btnEspecialidades.Location = new System.Drawing.Point(100, 241);
             this.btnEspecialidades.Name = "btnEspecialidades";
             this.btnEspecialidades.Size = new System.Drawing.Size(127, 65);
-            this.btnEspecialidades.TabIndex = 6;
+            this.btnEspecialidades.TabIndex = 0;
             this.btnEspecialidades.Text = "Especialidades";
             this.btnEspecialidades.UseVisualStyleBackColor = true;
             this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
@@ -74,7 +74,7 @@
             this.btnMedicos.Location = new System.Drawing.Point(233, 241);
             this.btnMedicos.Name = "btnMedicos";
             this.btnMedicos.Size = new System.Drawing.Size(127, 65);
-            this.btnMedicos.TabIndex = 7;
+            this.btnMedicos.TabIndex = 1;
             this.btnMedicos.Text = "Médicos";
             this.btnMedicos.UseVisualStyleBackColor = true;
             this.btnMedicos.Click += new System.EventHandler(this.btnMedicos_Click);
@@ -92,7 +92,7 @@
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bienvenido";
+            this.Text = "Bienvenido - Clínica Genérica";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);

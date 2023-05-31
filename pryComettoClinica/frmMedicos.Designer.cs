@@ -41,12 +41,12 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cargarMedicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mrcConsultas = new System.Windows.Forms.GroupBox();
-            this.dgvConsultas = new System.Windows.Forms.DataGridView();
-            this.especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbEspecialidadC = new System.Windows.Forms.ComboBox();
             this.lblEspecialidadC = new System.Windows.Forms.Label();
+            this.cmbEspecialidadC = new System.Windows.Forms.ComboBox();
+            this.dgvConsultas = new System.Windows.Forms.DataGridView();
+            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrcRegistroM.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.mrcConsultas.SuspendLayout();
@@ -60,21 +60,21 @@
             this.cmbEspecialidadM.Location = new System.Drawing.Point(90, 96);
             this.cmbEspecialidadM.Name = "cmbEspecialidadM";
             this.cmbEspecialidadM.Size = new System.Drawing.Size(121, 21);
-            this.cmbEspecialidadM.TabIndex = 3;
+            this.cmbEspecialidadM.TabIndex = 2;
             // 
             // txtNombreM
             // 
             this.txtNombreM.Location = new System.Drawing.Point(90, 60);
             this.txtNombreM.Name = "txtNombreM";
             this.txtNombreM.Size = new System.Drawing.Size(121, 20);
-            this.txtNombreM.TabIndex = 6;
+            this.txtNombreM.TabIndex = 1;
             // 
             // btnRegistrarM
             // 
             this.btnRegistrarM.Location = new System.Drawing.Point(277, 109);
             this.btnRegistrarM.Name = "btnRegistrarM";
             this.btnRegistrarM.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrarM.TabIndex = 5;
+            this.btnRegistrarM.TabIndex = 3;
             this.btnRegistrarM.Text = "Registrar";
             this.btnRegistrarM.UseVisualStyleBackColor = true;
             this.btnRegistrarM.Click += new System.EventHandler(this.btnRegistrarM_Click);
@@ -91,7 +91,7 @@
             this.mrcRegistroM.Location = new System.Drawing.Point(12, 12);
             this.mrcRegistroM.Name = "mrcRegistroM";
             this.mrcRegistroM.Size = new System.Drawing.Size(358, 138);
-            this.mrcRegistroM.TabIndex = 8;
+            this.mrcRegistroM.TabIndex = 0;
             this.mrcRegistroM.TabStop = false;
             this.mrcRegistroM.Text = "Médico";
             // 
@@ -127,7 +127,7 @@
             this.txtMatricula.Location = new System.Drawing.Point(90, 24);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(100, 20);
-            this.txtMatricula.TabIndex = 7;
+            this.txtMatricula.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -151,9 +151,28 @@
             this.mrcConsultas.Location = new System.Drawing.Point(12, 156);
             this.mrcConsultas.Name = "mrcConsultas";
             this.mrcConsultas.Size = new System.Drawing.Size(428, 218);
-            this.mrcConsultas.TabIndex = 4;
+            this.mrcConsultas.TabIndex = 1;
             this.mrcConsultas.TabStop = false;
             this.mrcConsultas.Text = "Consultas";
+            // 
+            // lblEspecialidadC
+            // 
+            this.lblEspecialidadC.AutoSize = true;
+            this.lblEspecialidadC.Location = new System.Drawing.Point(6, 16);
+            this.lblEspecialidadC.Name = "lblEspecialidadC";
+            this.lblEspecialidadC.Size = new System.Drawing.Size(67, 13);
+            this.lblEspecialidadC.TabIndex = 15;
+            this.lblEspecialidadC.Text = "Especialidad";
+            // 
+            // cmbEspecialidadC
+            // 
+            this.cmbEspecialidadC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEspecialidadC.FormattingEnabled = true;
+            this.cmbEspecialidadC.Location = new System.Drawing.Point(79, 13);
+            this.cmbEspecialidadC.Name = "cmbEspecialidadC";
+            this.cmbEspecialidadC.Size = new System.Drawing.Size(121, 21);
+            this.cmbEspecialidadC.TabIndex = 0;
+            this.cmbEspecialidadC.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidadC_SelectedIndexChanged);
             // 
             // dgvConsultas
             // 
@@ -170,19 +189,7 @@
             this.dgvConsultas.ReadOnly = true;
             this.dgvConsultas.RowHeadersVisible = false;
             this.dgvConsultas.Size = new System.Drawing.Size(416, 172);
-            this.dgvConsultas.TabIndex = 0;
-            // 
-            // especialidad
-            // 
-            this.especialidad.HeaderText = "Especialidad";
-            this.especialidad.Name = "especialidad";
-            this.especialidad.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
+            this.dgvConsultas.TabIndex = 1;
             // 
             // matricula
             // 
@@ -190,24 +197,17 @@
             this.matricula.Name = "matricula";
             this.matricula.ReadOnly = true;
             // 
-            // cmbEspecialidadC
+            // nombre
             // 
-            this.cmbEspecialidadC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEspecialidadC.FormattingEnabled = true;
-            this.cmbEspecialidadC.Location = new System.Drawing.Point(79, 13);
-            this.cmbEspecialidadC.Name = "cmbEspecialidadC";
-            this.cmbEspecialidadC.Size = new System.Drawing.Size(121, 21);
-            this.cmbEspecialidadC.TabIndex = 14;
-            this.cmbEspecialidadC.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidadC_SelectedIndexChanged);
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
-            // lblEspecialidadC
+            // especialidad
             // 
-            this.lblEspecialidadC.AutoSize = true;
-            this.lblEspecialidadC.Location = new System.Drawing.Point(6, 16);
-            this.lblEspecialidadC.Name = "lblEspecialidadC";
-            this.lblEspecialidadC.Size = new System.Drawing.Size(67, 13);
-            this.lblEspecialidadC.TabIndex = 15;
-            this.lblEspecialidadC.Text = "Especialidad";
+            this.especialidad.HeaderText = "Especialidad";
+            this.especialidad.Name = "especialidad";
+            this.especialidad.ReadOnly = true;
             // 
             // frmMedicos
             // 
@@ -220,7 +220,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMedicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro Médicos";
+            this.Text = "Médicos - Clínica Genérica";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mrcRegistroM.ResumeLayout(false);
             this.mrcRegistroM.PerformLayout();

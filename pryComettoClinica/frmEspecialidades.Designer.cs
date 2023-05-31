@@ -75,7 +75,7 @@
             this.txtNumeroE.Location = new System.Drawing.Point(68, 39);
             this.txtNumeroE.Name = "txtNumeroE";
             this.txtNumeroE.Size = new System.Drawing.Size(72, 20);
-            this.txtNumeroE.TabIndex = 2;
+            this.txtNumeroE.TabIndex = 0;
             // 
             // txtNombreE
             // 
@@ -89,7 +89,7 @@
             this.btnRegistrarE.Location = new System.Drawing.Point(220, 124);
             this.btnRegistrarE.Name = "btnRegistrarE";
             this.btnRegistrarE.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrarE.TabIndex = 0;
+            this.btnRegistrarE.TabIndex = 2;
             this.btnRegistrarE.Text = "Registrar";
             this.btnRegistrarE.UseVisualStyleBackColor = true;
             this.btnRegistrarE.Click += new System.EventHandler(this.btnRegistrarE_Click);
@@ -104,7 +104,7 @@
             this.MaximizeBox = false;
             this.Name = "frmEspecialidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro Especialidades";
+            this.Text = "Especialidades - Clínica Genérica";
             this.mrcEspecialidad.ResumeLayout(false);
             this.mrcEspecialidad.PerformLayout();
             this.ResumeLayout(false);
